@@ -38,3 +38,13 @@ const kTextFieldDecoration = InputDecoration(
 const String kMessagesCollection = 'messages';
 const String kMessageText = 'text';
 const String kMessageSender = 'sender';
+
+const kIsMeBorderRadius = BorderRadius.only(
+    topRight: Radius.circular(30),
+    bottomLeft: Radius.circular(30),
+    bottomRight: Radius.circular(30));
+
+const kIsOtherBorderRadius = BorderRadius.only(
+    topLeft: Radius.circular(30),
+    bottomLeft: Radius.circular(30),
+    bottomRight: Radius.circular(30));

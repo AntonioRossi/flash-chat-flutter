@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/components/message_bubble.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
 
 class MessagesStream extends StatelessWidget {
-  const MessagesStream({
-    @required Firestore firestore,
-  }) : _firestore = firestore;
+  const MessagesStream(
+      {@required Firestore firestore, @required this.currentUser})
+      : _firestore = firestore;
 
   final Firestore _firestore;
+  final FirebaseUser currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class MessagesStream extends StatelessWidget {
             final item = MessageBubble(
               text: messageText,
               sender: sender,
+              isMe: currentUser.email == sender,
             );
             messageBubbles.add(item);
           }
